@@ -1,0 +1,6 @@
+--  @shaxiao:创建本地开发用户
+CREATE USER 'liliu'@'%' IDENTIFIED BY '@Ikun1990';
+-- GRANT SELECT, INSERT, UPDATE, DELETE,CREATE,DROP,REFERENCES,ALTER  ON yzjdata.* TO 'yzjdata'@'%' ;
+GRANT ALL PRIVILEGES ON liliu.* TO 'liliu'@'%' ;
+FLUSH PRIVILEGES;
+
