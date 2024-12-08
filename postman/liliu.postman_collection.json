@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "79c95d3d-e1cf-4a4a-a6e0-e12f5595f4be",
+		"name": "liliu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test",
+			"item": [
+				{
+					"name": "echo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"ikun\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/liliu/test/echo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"liliu",
+								"test",
+								"echo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

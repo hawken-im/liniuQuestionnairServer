@@ -1,0 +1,45 @@
+部署运维操作
+
+项目目录
+cd /root/apps/docker_containers/liliu
+    包含docker编排文件docker-compose.yml;app应用环境文件DockerFile;app应用jar包liliu.jar;
+    data文件夹存放编排项目的挂载文件,logs文件夹存放应用日志文件,redis文件夹存放redis.cnf配置文件,nginx文件夹存放前端打包文件dist
+
+nginx目录
+日志: cd /var/log/nginx
+配置: cd /etc/nginx
+
+//命令路径要求
+docker-compose 命令默认要求在 docker-compose.yml文件目录,也就是/root/apps/docker_containers/liliu
+
+//停止app
+docker-compose down
+
+//启动app:
+1.复制liliu.jar 到 /root/apps/docker_containers/liliu
+进入目录 cd /root/apps/docker_containers/liliu
+
+(1)项目任何配置文件发生改动
+2.停止app
+docker-compose down
+3.删除旧镜像
+docker iamges
+docker rmi liliu
+4.重新编排
+docker-compose up -d
+
+(2)项目配置文件无改动
+2.停止app
+docker-compose down
+3.重新编排
+docker-compose up -d
+
+//单独操作app
+docker-compose [start/stop/restart]  liliu
+
+//查看日志
+docker-compose logs liliu
+cd /root/apps/docker_containers/liliu/data/logs
+
+//重载前端
+nginx -s reload

@@ -4,6 +4,6 @@ ENV LANG=C.UTF-8
 
 EXPOSE 8080
 
-ADD /target/liliu.jar /app.jar
+ADD ./target/liliu.jar /app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar","--spring.profiles.active=docker"]
