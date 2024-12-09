@@ -1,62 +1,25 @@
-# 开发环境配置
-server:
-  # 服务器的HTTP端口，默认为8080
-  port: 8080
-  servlet:
-    # 应用的访问路径
-    context-path: /liliu
-
 spring:
-# 数据源配置
+  # 数据源配置
   datasource:
-#    type: com.alibaba.druid.pool.DruidDataSource
-    type: com.zaxxer.hikari.HikariDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/liliu?allowMultiQueries=true&useAffectedRows=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: liliu
     password: '@Ikun1990'
     driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      minimum-idle: 10
-      # 连接池中允许的最大连接数。缺省值：10
-      maximum-pool-size: 20
-      # 自动提交 默认值为 true
-      auto-commit: true
-      # 连接允许在池中闲置的最长时间，一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟
-      idle-timeout: 600000
-      # 连接池名字，用于日志和监控
-      pool-name: mysql-pool
-      # 一 个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒
-      max-lifetime: 600000
-      # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 缺省:30秒
-      connection-timeout: 30000
-      #连接测试查询语句，用于验证连接是否有效
-      connection-test-query: select 1
-      #验证连接有效性的超时时间，单位为毫秒,默认值 5000 毫秒（5 秒）
-      validation-timeout: 30000
-      #设置事务隔离级别,不配置此项默认遵从数据库的配置，读已提交TRANSACTION_READ_COMMITTED，此外还有读未提交TRANSACTION_READ_UNCOMMITTED，可重复度TRANSACTION_REPEATABLE_READ，串行化TRANSACTION_SERIALIZABLE
-      transaction-isolation: TRANSACTION_READ_COMMITTED
-      #是否将连接设置为只读模式，默认false
-      readOnly: false
-
-  data:
-    redis:
-      # 地址
-      host: localhost
-      # 端口，默认为6379
-      port: 6379
-      # 数据库索引
-      database: 0
-      # 密码
-      password:
-      # 连接超时时间
-      timeout: 10s
-      lettuce:
-        pool:
-          # 连接池中的最小空闲连接
-          min-idle: 0
-          # 连接池中的最大空闲连接
-          max-idle: 8
-          # 连接池的最大数据库连接数
-          max-active: 8
-          # #连接池最大阻塞等待时间（使用负值表示没有限制）
-          max-wait: -1ms
+    druid:
+      # druid 数据源专有配置
+      # 不是druid-spring-boot-starter依赖，SpringBoot默认是不注入druid数据源专有属性值的，需要自己绑定
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      useGlobalDataSourceStat: true
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500

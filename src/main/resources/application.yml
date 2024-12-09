@@ -2,10 +2,17 @@ spring:
   application:
     name: app-admin
   profiles:
-    active: docker
+    active: local
 # 开发环境配置
 server:
   port: 8080
   servlet:
     # 应用的访问路径
     context-path: /liliu
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false
