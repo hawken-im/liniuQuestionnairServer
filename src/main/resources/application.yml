@@ -2,7 +2,7 @@ spring:
   application:
     name: app-admin
   profiles:
-    active: local
+    active: prod
 # 开发环境配置
 server:
   port: 8080

@@ -1,10 +1,10 @@
-package com.ikun.app_admin;
+package com.ikun.liliu;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AppAdminApplicationTests {
+class AllApplicationTests {
 
 	@Test
 	void contextLoads() {

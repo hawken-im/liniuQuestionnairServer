@@ -6,4 +6,5 @@ EXPOSE 8080
 
 ADD ./target/liliu.jar /app.jar
 
-ENTRYPOINT ["java","-jar","/app.jar","--spring.profiles.active=docker"]
+ENTRYPOINT ["java","-jar","/app.jar"]
+# ENTRYPOINT ["java","-jar","/app.jar","--spring.profiles.active=prod"]
