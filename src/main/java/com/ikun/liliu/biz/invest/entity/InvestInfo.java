@@ -22,13 +22,15 @@ public class InvestInfo extends PO
     private int uType;
     private String userName;
     private String userTel;
+    private int userGender;
     private String placeName;
     private String placeAddress;
     private int area;
     private int addArea;
     private int remodelingYear;
-    private String houseStyle;
-    private String hallFloor;
+    private int houseStyle;
+    private int hallFloor;
+    private int houseSystem;
     private int caseID;
     private int caseTimes;
     private int caseStatus;
