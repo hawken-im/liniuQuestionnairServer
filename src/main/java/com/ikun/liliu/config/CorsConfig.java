@@ -31,6 +31,8 @@ public class CorsConfig implements WebMvcConfigurer
         // 设置访问源地址,（*）表示匹配所有。
         config.addAllowedOrigin(cors);
 //        config.addAllowedOrigin("www.google.com");
+        // config.addAllowedOrigin("http://localhost:8080");
+        // config.addAllowedOrigin("http://localhost:3000");
         // 设置访问源请求头
         config.addAllowedHeader("*");
         // 设置访问源请求方法
